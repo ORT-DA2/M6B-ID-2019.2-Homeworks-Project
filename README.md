@@ -9,7 +9,7 @@
 
 ## Excel GitHub
 
-* [Cuentas GitHub](https://1drv.ms/x/s!AsRv3us8uF1Rg5VSw33izst2C9dCdg?e=y4Tl7F)
+* [Cuentas GitHub](https://docs.google.com/spreadsheets/d/1V5K2K-416nufsi_Rd8yGc6nr8j6lF1NbyDnTGFM-PJ0/edit?usp=sharing)
 
 ## Aclaración
 
