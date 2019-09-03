@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Homeworks.DataAccess;
+using Microsoft.EntityFrameworkCore;
+
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
@@ -26,6 +29,9 @@ namespace Homeworks.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddDbContext<DbContext, HomeworksContext>(
+                o => o.UseSqlServer(Configuration.GetConnectionString("HomeworksDB"))
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

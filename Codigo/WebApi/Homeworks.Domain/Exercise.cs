@@ -2,10 +2,11 @@
 
 namespace Homeworks.Domain
 {
-    public class Excercise
+    public class Exercise
     {
+        public Guid Id { get; set; }
         public string Problem { get; set; }
         public int Score { get; set; }
-        public Excercise() { }
+        public Exercise() { }
     }
 }
