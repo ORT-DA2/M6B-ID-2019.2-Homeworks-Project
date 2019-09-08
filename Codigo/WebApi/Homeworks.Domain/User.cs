@@ -10,5 +10,18 @@ namespace Homeworks.Domain
         public bool IsAdmin { get; set; }
         public string Password { get; set; }
         public User() { }
+        public bool IsValid() {
+            return !String.IsNullOrEmpty(Name) || 
+                !String.IsNullOrEmpty(UserName) || 
+                !String.IsNullOrEmpty(Password);
+        }
+
+        public User Update(User user) {
+            Name = user.Name;
+            UserName = user.UserName;
+            Password = user.Password;
+            IsAdmin = user.IsAdmin;
+            return this;
+        }
     }
 }
