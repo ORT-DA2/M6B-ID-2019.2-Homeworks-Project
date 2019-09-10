@@ -9,6 +9,7 @@
 * [Clase 3 - Inyección de Dependencias](/Clases/Clase%203%20-%20Inyeccion%20de%20Dependencias.md)
 * [Clase 3 - WebApi](/Clases/Clase%203%20-%20WebApi.md)
 * [Clase 3 - Postman](/Clases/Clase%203%20-%20Postman.pdf)
+* [Clase 4 - Mocking](/Clases/Clase%204%20-%20Mocking.md)
 
 ## Excel GitHub
 
