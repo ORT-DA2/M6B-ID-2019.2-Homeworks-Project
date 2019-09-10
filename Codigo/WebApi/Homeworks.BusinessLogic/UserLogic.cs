@@ -9,7 +9,8 @@ namespace Homeworks.BusinessLogic
     public class UserLogic : ILogic<User>
     {
         private IRepository<User> repository;
-        public UserLogic(IRepository<User> repository) {
+        public UserLogic(IRepository<User> repository) 
+        {
             this.repository = repository;
         }
         public User Create(User entity)

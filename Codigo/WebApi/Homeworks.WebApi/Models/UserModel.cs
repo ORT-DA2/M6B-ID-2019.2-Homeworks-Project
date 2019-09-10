@@ -13,6 +13,10 @@ namespace Homeworks.WebApi.Models
         public UserModel() { }
         public UserModel(User entity)
         {
+            if(entity == null)
+            {
+                throw new ArgumentException();
+            }
             this.Id = entity.Id;
             this.Name = entity.Name;
             this.UserName = entity.UserName;

@@ -24,7 +24,8 @@ namespace Homeworks.WebApi.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return Ok(users.GetAll());
+            IEnumerable<UserModel> usersReturned = users.GetAll().Select(u=>new UserModel(u));
+            return Ok(usersReturned);
         }
 
         // GET api/values/5
@@ -43,6 +44,10 @@ namespace Homeworks.WebApi.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] UserModel user)
         {
+            /*if(user == null)
+            {
+                return BadRequest("El usuario no puede ser vacio.");
+            }*/
             try
             {
                 var newUser = users.Create(user.ToEntity());
