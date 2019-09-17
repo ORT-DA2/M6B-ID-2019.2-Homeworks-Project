@@ -3,6 +3,7 @@ using Homeworks.Domain;
 using Homeworks.BusinessLogic.Interface;
 using Homeworks.DataAccess.Interface;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Homeworks.BusinessLogic
 {
@@ -14,9 +15,18 @@ namespace Homeworks.BusinessLogic
         }
         public User Create(User entity)
         {
-            repository.Add(entity);
-            repository.Save();
-            return entity;
+            int existUser = repository.GetAll().Where(x=>x.UserName==entity.UserName).ToList().Count;
+            if(existUser>0)
+            {
+                throw new ArgumentException("Ya existe el usuario.");
+            }
+            else
+            {
+                repository.Add(entity);
+                repository.Save();
+                return entity;
+            }
+            
         }
 
         public User Get(Guid id)
