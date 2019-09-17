@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Homeworks.BusinessLogic.Interface;
 using Homeworks.Domain;
 using Homeworks.WebApi.Models;
+using Homeworks.WebApi.Filters;
 
 namespace Homeworks.WebApi.Controllers
 {
@@ -15,12 +16,15 @@ namespace Homeworks.WebApi.Controllers
     {
 
         private ILogic<User> users;
-        public UsersController(ILogic<User> users) : base()
+        private ISession<UserSession> userSessions;
+        public UsersController(ILogic<User> users, ISession<UserSession> userSessions) : base()
         {
             this.users = users;
+            this.userSessions = userSessions;
         }
 
         // GET api/users
+        [ProtectFilter("Admin")]
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
@@ -28,6 +32,7 @@ namespace Homeworks.WebApi.Controllers
         }
 
         // GET api/values/5
+        [ProtectFilter("Admin")]
         [HttpGet("{id}")]
         public ActionResult<UserModel> Get(Guid id)
         {
