@@ -10,6 +10,7 @@
 * [Clase 3 - WebApi](/Clases/Clase%203%20-%20WebApi.md)
 * [Clase 3 - Postman](/Clases/Clase%203%20-%20Postman.pdf)
 * [Clase 4 - Mocking](/Clases/Clase%204%20-%20Mocking.md)
+* [Clase 5 - Filters](/Clases/Clase%205%20-%20Filters.md)
 
 ## Excel GitHub
 
