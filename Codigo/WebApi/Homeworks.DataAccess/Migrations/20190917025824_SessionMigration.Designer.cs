@@ -4,14 +4,16 @@ using Homeworks.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Homeworks.DataAccess.Migrations
 {
     [DbContext(typeof(HomeworksContext))]
-    partial class HomeworksContextModelSnapshot : ModelSnapshot
+    [Migration("20190917025824_SessionMigration")]
+    partial class SessionMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,37 +71,11 @@ namespace Homeworks.DataAccess.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Homeworks.Domain.UserSession", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("IsAdmin");
-
-                    b.Property<Guid>("Token");
-
-                    b.Property<Guid?>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Sessions");
-                });
-
             modelBuilder.Entity("Homeworks.Domain.Exercise", b =>
                 {
                     b.HasOne("Homeworks.Domain.Homework")
                         .WithMany("Exercises")
                         .HasForeignKey("HomeworkId");
-                });
-
-            modelBuilder.Entity("Homeworks.Domain.UserSession", b =>
-                {
-                    b.HasOne("Homeworks.Domain.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

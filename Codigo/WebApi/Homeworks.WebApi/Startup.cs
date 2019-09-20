@@ -36,7 +36,9 @@ namespace Homeworks.WebApi
                 o => o.UseSqlServer(Configuration.GetConnectionString("HomeworksDB"))
             );
             services.AddScoped<ILogic<User>, UserLogic>();
+            services.AddScoped<ISession<UserSession>, SessionsLogic>();
             services.AddScoped<IRepository<User>, UserRepository>();
+            services.AddScoped<IRepository<UserSession>, SessionsRepository>();
 
             services.AddCors(
                 options => { options.AddPolicy(
