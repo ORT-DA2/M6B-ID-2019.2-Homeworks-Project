@@ -16,11 +16,9 @@ namespace Homeworks.WebApi.Controllers
     {
 
         private ILogic<User> users;
-        private ISession<UserSession> userSessions;
-        public UsersController(ILogic<User> users, ISession<UserSession> userSessions) : base()
+        public UsersController(ILogic<User> users) : base()
         {
             this.users = users;
-            this.userSessions = userSessions;
         }
 
         // GET api/users
