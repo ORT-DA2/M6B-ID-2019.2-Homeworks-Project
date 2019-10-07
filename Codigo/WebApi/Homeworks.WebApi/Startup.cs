@@ -40,6 +40,8 @@ namespace Homeworks.WebApi
             services.AddScoped<ISession<UserSession>, SessionsLogic>();
             services.AddScoped<IRepository<User>, UserRepository>();
             services.AddScoped<IRepository<UserSession>, SessionsRepository>();
+            services.AddScoped<ILogic<Homework>, HomeworkLogic>();
+            services.AddScoped<IRepository<Homework>, HomeworkRepository>();
 
             services.AddCors(
                 options => { options.AddPolicy(

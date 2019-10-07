@@ -13,5 +13,15 @@ namespace Homeworks.Domain
         {
             Exercises = new List<Exercise>();
         }
+        public bool IsValid()
+        {
+            return true;
+        }
+        public Homework Update(Homework entity)
+        {
+            if (entity.Description != null)
+                Description = entity.Description;
+            return this;
+        }
     }
 }

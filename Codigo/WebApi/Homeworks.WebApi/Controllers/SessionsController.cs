@@ -30,4 +30,9 @@ public class SessionsController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+    [HttpGet]
+    public IActionResult Get([FromHeader] Guid token)
+    {
+        return Ok(sessions.isLogued(token));
+    }
 }

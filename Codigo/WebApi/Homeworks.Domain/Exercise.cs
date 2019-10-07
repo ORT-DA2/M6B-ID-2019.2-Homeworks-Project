@@ -8,5 +8,15 @@ namespace Homeworks.Domain
         public string Problem { get; set; }
         public int Score { get; set; }
         public Exercise() { }
+        public bool IsValid()
+        {
+            return true;
+        }
+        public Exercise Update(Exercise entity)
+        {
+            if (entity.Problem != null) 
+                Problem = entity.Problem;
+            return this;
+        }
     }
 }
