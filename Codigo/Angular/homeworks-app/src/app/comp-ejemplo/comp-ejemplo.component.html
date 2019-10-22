@@ -1,0 +1,10 @@
+<div>
+  <h1>{{ title }}</h1>
+  <mat-list role="list" *ngFor='let c of colors'>
+    <mat-list-item role="listitem">
+      {{ c }}
+    </mat-list-item>
+  </mat-list>
+  <div *ngIf="show; else elseBlock">Mostramos el contenido</div>
+  <ng-template #elseBlock>No lo mostramos</ng-template>
+</div>
