@@ -4,8 +4,8 @@ import { Homework } from '../models/Homework';
 import { Exercise } from '../models/Exercise';
 
 const ELEMENT_DATA = [
-  new Homework("1", "Una tarea", 0, new Date(), [new Exercise("1", "Un Problema", 0)]),
-  new Homework("2", "Otra tarea", 0, new Date(), [])
+  new Homework("1", "Una tarea", 1, new Date(), [new Exercise("1", "Un Problema", 0)]),
+  new Homework("2", "Otra tarea", 4, new Date(), [])
 ];
 
 @Component({
@@ -19,15 +19,27 @@ export class HomeworkListComponent implements OnInit {
   dataSource = ELEMENT_DATA;
   listFilter: string = "";
   onoff: boolean = false;
+  pageTitle: string;
 
   constructor(private _serviceHomeworks:HomeworksService) { }
 
   ngOnInit() {
     this.dataSource = this._serviceHomeworks.getHomeworks();
+    this._serviceHomeworks.getHomeworksAPI().subscribe(
+      ((data : Array<Homework>) => this.result(data)),
+      ((error : any) => console.log(error))
+  )
   }
-
+  private result(data: Array<Homework>):void {
+    this.dataSource = data;
+    console.log(this.dataSource);
+  }
   onoffChange(): void {
     this.onoff = !this.onoff;
   }
+
+  onRatingClicked(message:string):void {
+    this.pageTitle = message;
+}
 
 }
