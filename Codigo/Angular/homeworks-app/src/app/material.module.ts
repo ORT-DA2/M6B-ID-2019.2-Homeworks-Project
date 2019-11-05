@@ -6,7 +6,11 @@ import {
   MatTableModule,
   MatSlideToggleModule,
   MatCardModule,
-  MatMenuModule
+  MatMenuModule,
+  MatFormFieldModule,
+  MatButtonModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
 
 @NgModule({
@@ -16,7 +20,11 @@ import {
     MatTableModule,
     MatSlideToggleModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class MaterialComponentsModule {}

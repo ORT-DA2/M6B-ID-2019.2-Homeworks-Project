@@ -4,8 +4,8 @@ import { Homework } from '../models/Homework';
 import { Exercise } from '../models/Exercise';
 
 const ELEMENT_DATA = [
-  new Homework("1", "Una tarea", 1, new Date(), [new Exercise("1", "Un Problema", 0)]),
-  new Homework("2", "Otra tarea", 4, new Date(), [])
+  new Homework("Una tarea", 1, new Date(), [new Exercise("1", "Un Problema", 0)]),
+  new Homework("Otra tarea", 4, new Date(), [])
 ];
 
 @Component({
