@@ -24,7 +24,7 @@
       <!-- Name Column -->
       <ng-container matColumnDef="description">
         <mat-header-cell *matHeaderCellDef> Descripcion </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+        <mat-cell *matCellDef="let element" [routerLink]="['/homeworks', element.id]"> {{element.description}} </mat-cell>
       </ng-container>
 
       <!-- Weight Column -->
@@ -35,12 +35,26 @@
 
       <!-- Symbol Column -->
       <ng-container matColumnDef="score">
-        <mat-header-cell *matHeaderCellDef> Score </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.score}} </mat-cell>
+        <mat-header-cell *matHeaderCellDef> Score: {{pageTitle}}</mat-header-cell>
+        <mat-cell *matCellDef="let element"> <app-star [rating]="element.score" (ratingClicked)='onRatingClicked($event)'></app-star></mat-cell>
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
   </div>
+  <div>
+  <mat-list role="list" *ngFor='let c of list_changesOnInit'>
+    <mat-list-item role="listitem">
+      {{ c }}
+    </mat-list-item>
+  </mat-list>
+  </div>
+  <div>
+    <mat-list role="list" *ngFor='let c of list_changesOnChanges'>
+      <mat-list-item role="listitem">
+        {{ c }}
+      </mat-list-item>
+    </mat-list>
+    </div>
 </mat-card>

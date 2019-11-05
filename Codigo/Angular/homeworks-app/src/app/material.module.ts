@@ -5,7 +5,8 @@ import {
   MatInputModule,
   MatTableModule,
   MatSlideToggleModule,
-  MatCardModule
+  MatCardModule,
+  MatMenuModule
 } from '@angular/material';
 
 @NgModule({
@@ -14,8 +15,8 @@ import {
     MatInputModule,
     MatTableModule,
     MatSlideToggleModule,
-    MatCardModule
+    MatCardModule,
+    MatMenuModule
   ]
 })
 export class MaterialComponentsModule {}
-
