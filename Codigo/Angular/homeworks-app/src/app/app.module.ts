@@ -15,7 +15,9 @@ import { HomeworksFilterPipe } from './homework-list/homeworks-filter.pipe';
 import { StarComponent } from './star/star.component';
 import { HomeworkDetailComponent } from './homework-detail/homework-detail.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NewHomeworkComponent } from './new-homework/new-homework.component';
+import { AuthInterceptorService } from './auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeworkListComponent,
     HomeworksFilterPipe,
     StarComponent,
-    HomeworkDetailComponent
+    HomeworkDetailComponent,
+    NewHomeworkComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,12 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [HomeworksService, HomeworkDetailGuard],
+  providers: [HomeworksService, HomeworkDetailGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

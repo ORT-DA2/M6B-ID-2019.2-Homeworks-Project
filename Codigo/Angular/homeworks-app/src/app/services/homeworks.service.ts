@@ -11,18 +11,32 @@ import { map, tap, catchError } from 'rxjs/operators';
 })
 export class HomeworksService {
 
-  private WEB_API_URL : string = 'http://localhost:5000/api/homeworks';
+  private WEB_API_URL : string = 'https://localhost:5001/api/';
 
   constructor(private _httpService: HttpClient) {  }
 
   getHomeworks(): Array<Homework> {
     return [
-      new Homework('1', 'Una tarea service', 3, new Date(), [
+      new Homework('Una tarea service', 3, new Date(), [
         new Exercise('1', 'Un problema', 1),
         new Exercise('2', 'otro problema', 10)
       ]),
-      new Homework('2', 'Otra tarea service', 1, new Date(), [])
+      new Homework('Otra tarea service', 1, new Date(), [])
     ];
+  }
+
+  postHomeworks(hw): Observable<string> {
+    const myHeaders = new HttpHeaders();
+    myHeaders.append('Accept', 'application/json');
+    myHeaders.append('Content-Type', 'application/json-patch+json');
+    const httpOptions = {
+        headers: myHeaders,
+    };
+    return this._httpService.post<string>(this.WEB_API_URL+'Homeworks', hw, httpOptions)
+        .pipe(
+          tap(data => console.log(data)),
+          catchError(this.handleError)
+        );
   }
 
   getHomeworksAPI(): Observable<Array<Homework>> {
@@ -32,7 +46,7 @@ export class HomeworksService {
         headers: myHeaders
     };
 
-    return this._httpService.get<Array<Homework>>(this.WEB_API_URL, httpOptions)
+    return this._httpService.get<Array<Homework>>(this.WEB_API_URL+'Homeworks', httpOptions)
         .pipe(
             //map((response : Response) => <Array<Homework>> response.json()),
             tap(data => console.log('Los datos que obtuvimos fueron: ' + JSON.stringify(data))),

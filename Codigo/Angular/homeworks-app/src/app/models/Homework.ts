@@ -7,8 +7,8 @@ export class Homework {
   score: number;
   exercises: Array<Exercise>;
 
-  constructor(id:string, description:string, score:number, dueDate:Date, exercises: Array<Exercise>){
-      this.id = id;
+  constructor(description:string, score:number, dueDate:Date, exercises: Array<Exercise>){
+
       this.description = description;
       this.score = score;
       this.dueDate = dueDate;
